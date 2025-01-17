@@ -274,7 +274,6 @@
         };
         addCargo = function () {
           let allInputData = getDataForm(null);
-          console.log(isValidFormData(allInputData));
           if (isValidFormData(allInputData)) {
             if (indexRow == null) {
               cargoList.push(allInputData);
@@ -335,9 +334,16 @@
         });
         $("#status").change(function () {
           var selectedValue = $(this).val();
+          isValid =
+            new Date($("#departureDate").val()).getFullYear() ===
+              new Date().getFullYear() &&
+            new Date($("#departureDate").val()).getMonth() ===
+              new Date().getMonth() &&
+            new Date($("#departureDate").val()).getDate() ===
+              new Date().getDate();
           $("#info_status").text("");
           if (selectedValue == "Доставлен") {
-            if ($("#departureDate").val() === new Date()) {
+            if (isValid) {
               return selectedValue;
             } else {
               $("#info_status").text("Вы не может задать такой статус");
@@ -346,21 +352,37 @@
             return selectedValue;
           }
         });
-        isValidFormData = function (allInputData) {
-          valid = false;
-          if (Object.values(allInputData).every((el) => el !== "")) {
-            valid = true;
-            console.log(valid);
-          }
+        $("#departureDate").on("change", function () {
+          var selectedValue = $(this).val();
+          isValid =
+            new Date(selectedValue).getFullYear() ===
+              new Date().getFullYear() &&
+            new Date(selectedValue).getMonth() === new Date().getMonth() &&
+            new Date(selectedValue).getDate() === new Date().getDate();
+          $("#info_status").text("");
           if ($("#status").val() == "Доставлен") {
-            if ($("#departureDate").val() === new Date()) {
-              valid = true;
+            if (isValid) {
+              return selectedValue;
             } else {
-              valid = false;
+              $("#info_status").text("Вы не может задать такой статус");
             }
-            console.log(valid);
+          } else {
+            return selectedValue;
           }
-          return valid;
+        });
+
+        isValidFormData = function (allInputData) {
+          isValid = Object.values(allInputData).every((el) => el !== "");
+          if ($("#status").val() == "Доставлен") {
+            isValid =
+              new Date($("#departureDate").val()).getFullYear() ===
+                new Date().getFullYear() &&
+              new Date($("#departureDate").val()).getMonth() ===
+                new Date().getMonth() &&
+              new Date($("#departureDate").val()).getDate() ===
+                new Date().getDate();
+          }
+          return isValid;
         };
       });
       clearDataForm = function () {
