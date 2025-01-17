@@ -1,0 +1,261 @@
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.scrollable_wrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    overflow: auto;
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+.page_name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.data_grid_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.data_grid {
+    flex-grow: 1;
+    border-collapse: collapse;
+    overflow: auto;
+    border-collapse: collapse;
+    margin-top: 16px;
+    overflow: auto;
+}
+
+.data_grid td {
+    width: 200px;
+}
+
+.header_table td {
+    padding: 10px;
+    text-align: left;
+    border-top: 1px solid #dddddd;
+    overflow: hidden;
+    white-space: nowrap;
+
+}
+
+.header_table td:first-child {
+    min-width: 200px;
+    border-left: 1px solid #dddddd;
+}
+
+.header_table td:last-child {
+    width: 50px;
+    border-left: 1px solid #dddddd;
+}
+
+.body_table td {
+
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.body_table td:first-child {
+    width: 200px;
+    border-left: 1px solid #dddddd;
+}
+
+.body_table td:last-child {
+    width: 50px;
+    border-left: 1px solid #dddddd;
+}
+
+thead {
+    background-color: white
+}
+
+table tr {
+    display: flex;
+    justify-content: center;
+}
+
+.data_grid td {
+    padding: 10px;
+    border-bottom: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+}
+
+.body_table {
+    width: 100%;
+}
+
+.add_container {
+    display: flex;
+    justify-content: end;
+
+}
+
+.add_button {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+dialog {
+    border-radius: 10px;
+    border: 0px solid transparent;
+}
+
+.btn_form_container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#form_name {
+    text-align: center;
+}
+
+.data_grid td:nth-last-child(1) {
+    position: sticky;
+    right: 0px;
+    background-color: white;
+    z-index: 3;
+    width: 50px;
+
+    border-left: 0px;
+    border-right: 1px solid #dddddd;
+}
+
+#myDialog {
+    min-width: 320px;
+}
+
+.status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#wait {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: orange;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+#complite {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: green;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+#canceled {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+#onWay {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: blue;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.options_wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 16px 0px;
+    padding: 0px 24px
+}
+
+.checkbox_wrapper {
+    display: flex;
+}
+
+.status_checbox {
+    right: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #007BFF;
+    border-radius: 4px;
+    background-color: white;
+    margin-left: 8px;
+
+}
+
+#info_status {
+    color: red !important;
+    font-size: 14px;
+    margin-top: 4px;
+    margin-left: 8px;
+}
+
+@media (max-width: 768px) {
+
+    .header_table td,
+    .body_table td {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 14px;
+    }
+
+    .body_table td:last-child .header_table td:last-child {
+        display: none;
+    }
+
+    .scrollable_wrapper {
+        height: 100%;
+        max-width: 100%;
+        display: flex;
+        overflow: auto;
+
+    }
+
+    .page_name {
+        margin-bottom: 16px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 16px;
+
+    }
+
+    .add_button {
+        font-size: 14px;
+    }
+}
